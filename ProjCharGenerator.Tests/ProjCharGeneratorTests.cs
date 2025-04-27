@@ -86,7 +86,7 @@ namespace GeneratorTests
         {
             var generator = new WordGenerator(Path.Combine(_testDataPath, "valid_words.txt"));
             Assert.AreEqual(2, generator.GetSize());
-            Assert.AreEqual(8.5, generator.summ);
+            Assert.AreEqual(85, generator.summ);
         }
 
         [TestMethod]
@@ -108,7 +108,7 @@ namespace GeneratorTests
         public void WordGenerator_GetWordWeight_ReturnsCorrectValue()
         {
             var generator = new WordGenerator(Path.Combine(_testDataPath, "valid_words.txt"));
-            Assert.AreEqual(3.5, generator.GetWordWeight("apple"));
+            Assert.AreEqual(35, generator.GetWordWeight("apple"));
         }
 
         [TestMethod]
