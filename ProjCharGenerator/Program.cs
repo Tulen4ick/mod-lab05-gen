@@ -22,6 +22,10 @@ namespace generator
                 directory = directory.Parent;
             }
             var bigramsAndWeights = File.ReadAllLines(Path.Combine(directory.FullName, charsfile));
+            if (bigramsAndWeights.Length == 0)
+            {
+                throw new ArgumentException("the file must contain bigrams");
+            }
             foreach (var bigraminfo in bigramsAndWeights)
             {
                 var parts = bigraminfo.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
@@ -77,8 +81,14 @@ namespace generator
                 var word = parts[1].Trim();
                 words.Add(word);
                 var weight = double.Parse(parts[4].Trim());
+                if (weight < 0)
+                    throw new ArgumentException("the weight cannot be negative");
                 weights.Add(weight);
                 summ += weight;
+            }
+            if (summ == 0)
+            {
+                throw new ArgumentException("the sum of the weights cannot be zero");
             }
         }
         public string getSym()

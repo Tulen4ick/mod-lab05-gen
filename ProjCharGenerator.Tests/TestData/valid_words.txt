@@ -1,2 +1,2 @@
-1 apple 3.5
-2 banana 5.0
+1 apple apple spro 3.5
+2 banana banana spro 5.0

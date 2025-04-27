@@ -117,5 +117,12 @@ namespace GeneratorTests
         {
             new WordGenerator(Path.Combine(_testDataPath, "zero_weights.txt"));
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void WordGenerator_NegativeWeights_ThrowsException()
+        {
+            new WordGenerator(Path.Combine(_testDataPath, "negative_weights.txt"));
+        }
     }
 }
